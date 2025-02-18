@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoredReadList, addToStoredWishList } from "../../utility/addToDb";
 
 const BookDetail = () => {
   const { bookId } = useParams();
@@ -17,6 +18,12 @@ const BookDetail = () => {
     yearOfPublishing,
     rating,
   } = books;
+  const handleRead = (id) => {
+    addToStoredReadList(id)
+  }
+  const handleWishList = (id) => {
+    addToStoredWishList(id);
+  }
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
@@ -34,7 +41,6 @@ const BookDetail = () => {
             {review}
           </p>
           <div className="flex justify-start gap-4 items-center my-4">
-            {" "}
             <span className="font-bold">Tag</span>
             <div className="badge badge-accent badge-outline">{tags[0]}</div>
             <div className="badge badge-accent badge-outline">{tags[1]}</div>
@@ -60,8 +66,8 @@ const BookDetail = () => {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-outline text-white mr-4">Read</button>
-          <button className="btn btn-info">WishList</button>
+          <button className="btn btn-outline text-white mr-4" onClick={() => handleRead(bookId)}>Read</button>
+          <button className="btn btn-info" onClick={()=>handleWishList(bookId)}>WishList</button>
         </div>
       </div>
     </div>
