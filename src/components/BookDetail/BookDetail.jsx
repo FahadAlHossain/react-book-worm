@@ -27,17 +27,17 @@ const BookDetail = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
-        <figure className="bg-blue-200 p-20 rounded-xl">
-        <img src={image} className="max-w-80 rounded-lg shadow-2xl" />
+        <figure className="bg-blue-200 p-8 rounded-xl max-w-sm">
+        <img src={image} className="lg:max-w-80 rounded-lg shadow-2xl" />
         </figure>
         <div>
-          <h1 className="text-5xl font-bold">{bookName}</h1>
-          <p className="py-4">By : {author}</p>
+          <h1 className="text-4xl font-bold">{bookName}</h1>
+          <p className="py-4 text-sm">By : {author}</p>
           <div className="border-b"></div>
           <p className="py-4">{category}</p>
           <div className="border-b mb-4"></div>
           <p>
-            <span className="font-bold">Review : </span>
+            <span className="font-bold text-sm">Review : </span>
             {review}
           </p>
           <div className="flex justify-start gap-4 items-center my-4">
